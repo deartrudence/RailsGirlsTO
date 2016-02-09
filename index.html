@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>RailsGirlsTO</title>
+  <title>Rails Girls TO</title>
   <!-- Latest compiled and minified Bootstrap CSS -->
   <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
   <!-- Fontawesome.io CSS -->
@@ -13,6 +13,11 @@
   <link rel="stylesheet" href="bloxstyle.css">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
   <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+  <!-- for Facebook -->
+  <meta property="og:title" content="Rails Girls TO" />
+  <meta property="og:image" content="images/RailsGirlsLogo.jpg" />
+
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
 <!-- test -->
 
@@ -190,6 +195,7 @@
                   <div data-scroll-reveal="wait .5s, enter from the bottom" class="social col-md-8">
                       <!-- Slack Form -->
                       <p>Get more out of the community by being part of our slack discussions</p>
+                      <p class="form-thanks"></p>
                       <form enctype="application/json" action="https://sheetsu.com/apis/78965d31" method="post" id="slack-form">
                         <fieldset class="form-group">
                           <input class="form-control" name="Name" placeholder="name">
@@ -352,6 +358,53 @@ $(document).ready(function(){
   smoothScroll.init({
       speed: 800, // Integer. How fast to complete the scroll in milliseconds
       easing: 'easeInOutCubic'
+  });
+</script>
+
+<script>
+  // jQuery snippet for changing HTML form into JSON
+  (function ($) {
+    $.fn.serializeFormJSON = function () {
+      var o = {};
+      var a = this.serializeArray();
+      $.each(a, function () {
+        if (o[this.name]) {
+          if (!o[this.name].push) { o[this.name] = [o[this.name]]; }
+          o[this.name].push(this.value || '');
+        } else { o[this.name] = this.value || ''; }
+      });
+      return o;
+    };
+  })(jQuery);
+
+  $('#slack-form').submit(function(e) {
+    // prevent default submiting form
+    e.preventDefault();
+
+    // serialize data to JSON
+    var data = $('#slack-form').serializeFormJSON();
+
+    $.ajax({
+      url: 'https://sheetsu.com/apis/v1.0/78965d31',
+      data: data,
+      dataType: 'json',
+      type: 'POST',
+
+      // place for handling successful response
+      // showing (redirecting to) something like /thanks.html
+      //page could be a good idea
+      success: function(data) {
+        console.log(data);
+        $('.form-thanks').text("Thanks! your request will be processed shortly")
+      },
+
+      // handling error response
+      error: function(data) {
+        console.log(data);
+      }
+    });
+
+    return false;
   });
 </script>
 </body>
