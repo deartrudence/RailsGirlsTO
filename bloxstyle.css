@@ -156,6 +156,33 @@ font-size: 20px;
   color: #D3360B ;
   text-decoration: none;
 }
+
+ /*sponsors */
+ #silver-sponsors a h4 {
+   color: #272727;
+ }
+ #silver-sponsors a:hover {
+ 	text-decoration: none;
+ 	cursor: pointer;
+ }
+ #silver-sponsors a h4:hover {
+   color: #D3360B ;
+   text-decoration: none;
+   cursor: pointer;
+ }
+
+ #community-partners a h4 {
+   color: #272727;
+ }
+ #community-partners a:hover {
+ 	text-decoration: none;
+ 	cursor: pointer;
+ }
+ #community-partners a h4:hover {
+   color: #D3360B ;
+   text-decoration: none;
+   cursor: pointer;
+ }
 /* carousel */
 #quote-carousel
 {
