@@ -37,6 +37,15 @@ h6 { font-size: 16px; line-height: 22px; }
   color: #D3360B;
 }
 
+.fa-meetup-link {
+  color: #ED1C40;
+  font-size: 140px;
+  margin-top: 30px;
+}
+.fa-meetup-link:hover {
+  color: #a5132c ;
+}
+
 /* Navbar 2
 ======================================== */
 .navbar-2.navbar-default {
@@ -139,6 +148,24 @@ font-size: 20px;
   height: 180px;
   width: 180px;
 }
+.img-nulogy {
+  height: 80px;
+  width: initial;
+  margin-top: 30%;
+}
+.img-shopify {
+  margin-top: 20%;
+}
+.img-careguide {
+  height: 60px;
+  width: initial;
+  margin-top: 14%;
+  margin-bottom: 14%;
+  margin-left: 20px;
+}
+.img-financeit {
+  width: unset;
+}
 .profile-pic {
   height: 120px;
   width: 120px;
@@ -150,9 +177,9 @@ font-size: 20px;
 
 /* Events */
 
-#events i {
+/*#events i {
   font-size: 20px;
-}
+}*/
 #events a {
   color: #272727;
 }
